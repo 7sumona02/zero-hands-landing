@@ -13,7 +13,7 @@ const Hero = () => {
         <div className='text-5xl font-medium max-w-xl text-white text-center leading-14 font-sans'>The email experience
             you&apos;ve been waiting for.</div>
         <div className='mt-10'>
-            <div className="*:not-first:mt-2">
+            <div className="*:not-first:mt-2 cursor-pointer">
       <div className="relative md:w-[40rem] text-white">
         <Input
           className="peer ps-6 pe-12 shadow bg-white/5 backdrop-blur-lg rounded-lg border-none text-white py-10 text-3xl font-sans"

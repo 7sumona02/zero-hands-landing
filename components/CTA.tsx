@@ -8,7 +8,7 @@ const CTA = () => {
     <div className={`${pd.className} min-h-screen max-w-6xl mx-auto flex flex-col justify-center items-center`}>
         <div className='text-8xl font-medium'>Start Exploring</div>
         <div className='mt-20'>
-            <div className="*:not-first:mt-2">
+            <div className="*:not-first:mt-2 cursor-pointer">
       <div className="relative w-[40rem]">
         <Input2
           className="peer ps-6 pe-12 shadow-2xl bg-[#83B2F550] rounded-lg border-none text-black py-10 text-3xl font-sans"
