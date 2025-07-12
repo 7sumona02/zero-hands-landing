@@ -4,7 +4,7 @@ const pd = Playfair_Display({ subsets: ['latin'] })
 
 const Info = () => {
   return (
-    <div className='min-h-screen flex items-center justify-center pt-16 relative md:px-0 px-5'>
+    <div className='h-screen flex items-center justify-center md:pt-[32rem] pt-[38rem] md:pb-[60rem] pb-[50rem] md:px-0 px-5 relative'>
         <div className={`flex flex-col items- justify-center text-2xl space-y-10 max-w-4xl mx-auto ${pd.className}`}>
             <p className='pb-10 font-sans text-lg text-center tracking-wide'>OUR AIM</p>
             <p><span className='text-3xl font-medium italic'>In</span> an era defined by constant connection, when every notification bids for our attention,  when our productivity is measured by the speed of our response, we have little space left for deep work.</p>
@@ -15,11 +15,11 @@ const Info = () => {
                 <img src='/no.svg' alt='img' className='w-[24rem]' />
             </div>
         </div>
-        {/* <img
+        <img
                 src="/sep.svg" 
                 alt="Cropped Image"
-                className="w-full absolute inset-0 -translate-y-[24rem]"
-            /> */}
+                className="w-full absolute md:pt-80 pt-[70rem]"
+            />
     </div>
   )
 }
