@@ -9,11 +9,13 @@ import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
 import Hero from '@/components/Hero'
 import { Hero1 } from '@/components/Hero1'
+import AfterHerp from '@/components/AfterHerp'
 
 const page = () => {
   return (
     <div className='relative'>
         <Hero1 />
+        <AfterHerp />
         {/* <Hero /> */}
         <Info />
         <Bento />
