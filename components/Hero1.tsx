@@ -9,7 +9,8 @@ const pd = Playfair_Display({ subsets: ['latin'] })
 
 export function Hero1() {
   return (
-   <div className="">
+   <div className="relative h-screen">
+    <div className='text-3xl font-medium text-white/70 absolute top-8 left-10 z-999'><span className={`${pd.className}`}>zero</span> hands</div>
      <LampContainer>
       <motion.h1
         initial={{ opacity: 0.5, y: 50 }}

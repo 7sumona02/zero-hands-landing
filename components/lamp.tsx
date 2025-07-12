@@ -76,7 +76,7 @@ export const LampContainer = ({
         <div className="absolute inset-auto z-50 h-60 w-[28rem] -translate-y-1/2  bg-[#91AED8] opacity-50 blur-3xl"></div>
         <motion.div
           initial={{ width: "8rem" }}
-          animate={{ width: "16rem" }}
+          animate={{ width: "10rem" }}
           transition={{
             delay: 0.3,
             duration: 0.8,
@@ -86,7 +86,7 @@ export const LampContainer = ({
         ></motion.div>
         <motion.div
           initial={{ width: "15rem" }}
-          animate={{ width: "30rem" }}
+          animate={{ width: "20rem" }}
           transition={{
             delay: 0.3,
             duration: 0.8,
