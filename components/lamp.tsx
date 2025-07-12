@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useMediaQuery } from "react-responsive";
 
 export function LampDemo() {
   return (
@@ -29,6 +30,8 @@ export const LampContainer = ({
   children: React.ReactNode;
   className?: string;
 }) => {
+    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+
   return (
     <div
       className={cn(
@@ -86,7 +89,7 @@ export const LampContainer = ({
         ></motion.div>
         <motion.div
           initial={{ width: "15rem" }}
-          animate={{ width: "20rem" }}
+          animate={{ width: isMobile ? "20rem" : "30rem" }}  // Only this changes
           transition={{
             delay: 0.3,
             duration: 0.8,
