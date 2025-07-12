@@ -1,15 +1,28 @@
-import { Input } from '@/components/ui/input'
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import { LampContainer } from "./lamp";
+import { Input } from "./ui/input";
 import { Playfair_Display } from 'next/font/google'
  
 const pd = Playfair_Display({ subsets: ['latin'] })
 
-const Hero = () => {
+export function Hero1() {
   return (
-    <div className='min-h-screen w-screen flex justify-center items-center bg-[#5477A8] relative'>
-        {/* navbar */}
-        <div className='text-3xl font-medium text-white absolute top-8 left-10'><span className={`${pd.className}`}>zero</span> hands</div>
-        <div className='h-52 w-screen bg-linear-to-t from-white to-white/0 absolute z-999 bottom-0'></div>
-        <div className={`${pd.className} min-h-screen max-w-6xl mx-auto flex flex-col justify-center items-center`}>
+   <div className="">
+     <LampContainer>
+      <motion.h1
+        initial={{ opacity: 0.5, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.3,
+          duration: 0.8,
+          ease: "easeInOut",
+        }}
+        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-transparent"
+      >
+        {/* Build lamps <br /> the right way */}
+        <div className={`${pd.className} translate-y-20 max-w-6xl mx-auto flex flex-col justify-center items-center`}>
         <div className='md:text-5xl text-3xl font-medium md:max-w-xl max-w-2xl text-white text-center md:leading-14 font-sans'>The email experience
             you&apos;ve been waiting for.</div>
         <div className='mt-10'>
@@ -30,8 +43,8 @@ const Hero = () => {
     </div>
         </div>
     </div>
-    </div>
-  )
+      </motion.h1>
+    </LampContainer>
+   </div>
+  );
 }
-
-export default Hero

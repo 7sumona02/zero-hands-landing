@@ -4,7 +4,7 @@ const pd = Playfair_Display({ subsets: ['latin'] })
 
 const About = () => {
   return (
-    <div className='min-h-screen flex flex-col-reverse items-center justify-center relative pb-60'>
+    <div className='min-h-screen flex flex-col-reverse items-center justify-center relative md:px-0 px-10 pb-50'>
         <div className={`flex flex-col items- justify-center text-2xl space-y-10 mt-10 max-w-lg mx-auto text-center ${pd.className}`}>
             <p>We&apos;re building something different with Zero Hands. It&apos;s a calm, intentional way to manage your communication. One place for clarity, focus, and flow.</p>
             <p>We put your time and attention first.</p>

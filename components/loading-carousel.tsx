@@ -139,14 +139,14 @@ export function LoadingCarousel({
   shuffleTips = false,
   animateText = true,
 }: LoadingCarouselProps) {
-  const [progress, setProgress] = useState(0)
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [direction, setDirection] = useState(0)
-  const controls = useAnimation()
   const [displayTips] = useState(() =>
     shuffleTips ? shuffleArray(tips) : tips
   )
+  const [progress, setProgress] = useState(0)
+  const controls = useAnimation()
 
   const autoplay = Autoplay({
     delay: autoplayInterval,
@@ -168,6 +168,7 @@ export function LoadingCarousel({
       setCurrent(newIndex)
       setDirection(api.scrollSnapList().indexOf(newIndex) - current)
       onTipChange?.(newIndex)
+      setProgress(0) // Reset progress on manual selection
     }
 
     api.on("select", onSelect)
@@ -182,13 +183,13 @@ export function LoadingCarousel({
 
     const timer = setInterval(() => {
       setProgress((oldProgress) => {
-        if (oldProgress === 100) {
+        if (oldProgress >= 100) {
           return 0
         }
-        const diff = 2 // Constant increment for smoother progress
+        const diff = (100 / autoplayInterval) * 50 // Smooth progress based on interval
         return Math.min(oldProgress + diff, 100)
       })
-    }, autoplayInterval / 50)
+    }, 50) // Update every 50ms for smooth animation
 
     return () => {
       clearInterval(timer)
@@ -199,7 +200,6 @@ export function LoadingCarousel({
     if (progress === 100) {
       controls.start({ scaleX: 0 }).then(() => {
         setProgress(0)
-        controls.set({ scaleX: 1 })
       })
     } else {
       controls.start({ scaleX: progress / 100 })
@@ -209,6 +209,7 @@ export function LoadingCarousel({
   const handleSelect = useCallback(
     (index: number) => {
       api?.scrollTo(index)
+      setProgress(0) // Reset progress when manually selecting a pill
     },
     [api]
   )
@@ -239,23 +240,41 @@ export function LoadingCarousel({
             )}
           >
             {showIndicators && (
-              <div className="flex items- space-x-2 overflow-x-auto pb-2 sm:pb-0 w-full sm:w-auto">
-                {(displayTips || []).map((_, index) => (
-                  <motion.button
-                    key={index}
-                    className={`h-1 w-[12.5rem] mt-8 flex-shrink-0 rounded-full ${
-                      index === current ? "bg-muted" : "bg-primary"
-                    }`}
-                    initial={false}
-                    animate={{
-                      backgroundColor:
-                        index === current ? "#2491FF" : "#E6E6E4",
-                    }}
-                    transition={{ duration: 0.5 }}
-                    onClick={() => handleSelect(index)}
-                    aria-label={`Go to tip ${index + 1}`}
-                  />
-                ))}
+              <div className="flex items-center space-x-2 overflow-x-auto pb-2 sm:pb-0 w-full sm:w-auto">
+                {(displayTips || []).map((_, index) => {
+  const isCompleted = index < current;
+  const isActive = index === current && showProgress;
+  
+  return (
+    <motion.button
+      key={index}
+      className="h-1 w-[12.5rem] rounded-full relative overflow-hidden"
+      onClick={() => handleSelect(index)}
+      aria-label={`Go to tip ${index + 1}`}
+    >
+      {/* Base background */}
+      <div className="h-full w-full bg-[#E6E6E4] absolute top-0 left-0 right-0" />
+      
+      {/* Completed progress (solid blue) - instantly shown without animation */}
+      {isCompleted && (
+        <div className="h-full bg-[#2491FF] absolute top-0 left-0 right-0" />
+      )}
+      
+      {/* Active progress animation - only when active */}
+      {isActive && (
+        <motion.div
+          className="h-full bg-[#2491FF] origin-left absolute top-0 left-0 right-0"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ 
+            duration: autoplayInterval / 1000,
+            ease: "linear"
+          }}
+        />
+      )}
+    </motion.button>
+  );
+})}
               </div>
             )}
             <div className="flex space-x-2 text-primary whitespace-nowrap">
@@ -298,14 +317,6 @@ export function LoadingCarousel({
               {backgroundTips && <ChevronRight className="w-4 h-4" />}
             </div>
           </div>
-          {/* {showProgress && (
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={controls}
-              transition={{ duration: 0.5, ease: "linear" }}
-              className="h-1 bg-[#2491FF]/20 origin-left mt-2"
-            />
-          )} */}
         </div>
         <Carousel
           setApi={setApi}
@@ -326,9 +337,9 @@ export function LoadingCarousel({
                     exit="exit"
                     custom={direction}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
-                    className={`relative ${aspectRatioClasses[aspectRatio]} flex items-end gap-20 justify-between w-full overflow-hidden pb-10 cursor-grab`}
+                    className={`relative ${aspectRatioClasses[aspectRatio]} flex md:flex-row flex-col items-end md:gap-20 justify-between w-full overflow-hidden pb-10 cursor-grab h-[32rem]`}
                   >
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-3 pl-4">
                         <div className={`title text-3xl font-medium ${pd.className}`}>{tip.title}</div>
                         <div className="desc text-xl text-[#303030] max-w-lg">{tip.desc}</div>
                     </div>
