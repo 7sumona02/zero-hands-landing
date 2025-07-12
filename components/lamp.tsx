@@ -89,7 +89,7 @@ export const LampContainer = ({
         ></motion.div>
         <motion.div
           initial={{ width: "15rem" }}
-          animate={{ width: isMobile ? "20rem" : "30rem" }}  // Only this changes
+          animate={{ width: isMobile ? "18rem" : "30rem" }}  // Only this changes
           transition={{
             delay: 0.3,
             duration: 0.8,
