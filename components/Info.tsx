@@ -31,13 +31,12 @@ const noList = [
 
 const Info = () => {
   return (
-    <div className='h-screen flex items-center justify-center md:pt-[32rem] pt-[30rem] md:pb-[60rem] pb-[50rem] md:px-0 px-5 relative z-999'>
-        <div className={`flex flex-col items- justify-center md:text-2xl text-xl space-y-10 max-w-4xl mx-auto ${pd.className}`}>
-            <p className='md:pb-10 font-sans text-lg text-center tracking-wide'>OUR AIM</p>
-            <p><span className='md:text-3xl text-2xl font-medium italic'>In</span> an era defined by constant connection, when every notification bids for our attention,  when our productivity is measured by the speed of our response, we have little space left for deep work.</p>
-            <p>Our focus has been fractured –</p>
-            <p>by endless threads, by manufactured urgency,  and by platforms designed for data streams, not for human thought. What was promised as a tool for connection is now yours to command.</p>
-            <p>We believe:</p>
+    <div className='h-screen flex items-center justify-center md:pt-[38rem] pt-[30rem] md:pb-[60rem] pb-[50rem] md:px-0 px-5 relative z-999'>
+        <div className={`flex flex-col items-center justify-center md:text-2xl text-xl space-y-10 max-w-4xl mx-auto ${pd.className}`}>
+            <p className='md:pb-4 font-sans text-lg text-center tracking-wide'>OUR AIM</p>
+            <h1 className="md:text-5xl text-4xl font-medium text-center max-w-3xl pb-6 font-['Louize']">Attention is your currency</h1>
+             <img src='/info.svg' alt='info' className='w-[32rem]' />
+            <p className='font-sans pt-2'>Reclaim deep work in a world of constant pings.</p>
             {/* <div className='mx-auto pt-10'>
                 <img src='/no.svg' alt='img' className='w-[24rem]' />
             </div> */}
@@ -50,7 +49,7 @@ const Info = () => {
         <img
                 src="/sep.svg" 
                 alt="Cropped Image"
-                className="w-full absolute md:pt-80 pt-[70rem]"
+                className="w-full absolute md:pt-[35.5rem] pt-[70rem]"
             />
             
     </div>
