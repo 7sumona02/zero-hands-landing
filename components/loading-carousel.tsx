@@ -340,8 +340,8 @@ export function LoadingCarousel({
                     className={`relative ${aspectRatioClasses[aspectRatio]} flex md:flex-row flex-col items-end md:gap-20 justify-between w-full overflow-hidden pb-10 cursor-grab h-[32rem]`}
                   >
                     <div className="flex flex-col gap-3 pl-4">
-                        <div className={`title text-3xl font-medium ${pd.className}`}>{tip.title}</div>
-                        <div className="desc text-xl text-[#303030] max-w-lg">{tip.desc}</div>
+                        <div className={`title md:text-3xl text-2xl font-medium font-['Louize']`}>{tip.title}</div>
+                        <div className="desc md:text-xl text-[#303030] max-w-lg">{tip.desc}</div>
                     </div>
                     <div className="h-full overflow-hidden">
                         <img

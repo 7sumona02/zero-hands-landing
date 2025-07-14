@@ -11,10 +11,10 @@ type BentoProps = {
 
 const Bento = () => {
   return (
-    <div className='min-h-screen max-w-4xl mx-auto flex items-center justify-center md:pt-96 pt-50 relative z-10 pb-20 md:px-0 px-5'>
-        <div className={`flex flex-col items-center justify-center text-2xl space-y-10 ${pd.className}`}>
-            <p className='pb-10 font-sans text-lg text-center tracking-wider'>YOUR ZERO DITRACTION ZONE</p>
-            <h1 className='text-5xl font-medium text-center max-w-3xl leading-16 pb-16'>A smarter way to handle email — with clarity, speed, and zero effort.</h1>
+    <div className='min-h-screen max-w-4xl mx-auto flex items-center justify-center md:pt-96 pt-30 relative z-10 pb-20 md:px-0 px-5'>
+        <div className={`flex flex-col items-center justify-center text-2xl space-y-10 font-['Louize']`}>
+            <p className='pb-5 font-sans text-lg text-center tracking-wider'>YOUR ZERO DITRACTION ZONE</p>
+            <h1 className="md:text-5xl text-4xl font-medium text-center max-w-3xl pb-6 font-['Louize']">A smarter way to handle email — with clarity, speed, and zero effort.</h1>
             <div className='w-full flex flex-col gap-6'>
               <div className='flex md:flex-row flex-col gap-6'>
                  <BentoCard imgURL='/b1.svg' title='Instant Triage'
@@ -51,9 +51,9 @@ export default Bento
 const BentoCard = ({imgURL, title, desc, className}: BentoProps) => {
     return (
         <div className={`h-[40rem] rounded-3xl p-8 ${className}`}>
-                    <img src={imgURL} alt='bento' className='rounded-2xl' />
+                    <img src={imgURL} alt='bento-img' className='rounded-2xl' />
                     <div className='space-y-4 mt-8'>
-                        <div className="title">{title}</div>
+                        <div className="title text-3xl">{title}</div>
                         <div className="desc text-lg font-sans">{desc}</div>
                     </div>
                 </div>

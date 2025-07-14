@@ -19,7 +19,7 @@ const page = () => {
         {/* <Hero /> */}
         <Info />
         <Bento />
-         <div className='pb-50 relative z-999 md:px-0 px-5'>
+         <div className='md:pb-0 pb-50 relative z-999 md:px-0 px-5'>
             <LoadingCarousel />
          </div>
          <Testimonials />

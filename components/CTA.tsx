@@ -5,9 +5,9 @@ const pd = Playfair_Display({ subsets: ['latin'] })
 
 const CTA = () => {
   return (
-    <div className={`${pd.className} h-[40rem] max-w-6xl mx-auto flex flex-col justify-center items-center`}>
-        <div className='md:text-8xl text-6xl font-medium text-center'>Start Exploring</div>
-        <div className='mt-20'>
+    <div className={`font-['Louize'] h-[40rem] max-w-6xl mx-auto flex flex-col justify-center items-center`}>
+        <div className='md:text-8xl text-6xl font-medium text-center md:max-w-full max-w-xs'>Start Exploring</div>
+        <div className='mt-16'>
             <div className="*:not-first:mt-2 cursor-pointer">
       <div className="relative md:w-[40rem] w-[20rem]">
         <Input2

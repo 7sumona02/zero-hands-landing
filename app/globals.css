@@ -120,3 +120,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: 'Louize';
+  src: url('/fonts/Louize.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
